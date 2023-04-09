@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">          
+<tiles-definitions>  
+ 
+    <!-- Base Define -->
+    <definition name="base.definition" template="/WEB-INF/layouts/layout.jsp">  
+        <put-attribute name="title" value="" />  
+        <put-attribute name="header" value="/WEB-INF/basefragments/header.jsp" />  
+        <put-attribute name="body" value="" />  
+        <put-attribute name="footer" value="/WEB-INF/basefragments/footer.jsp" />  
+    </definition>  
+ 
+ 	<!-- Home Page  -->
+    <definition name="home" extends="base.definition">  
+        <put-attribute name="title" value="Home" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/home.jsp" />  
+    </definition>   
+    
+     	<!-- Registration Page  -->
+    <definition name="registration" extends="base.definition">  
+        <put-attribute name="title" value="Registration" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/registration.jsp" />  
+    </definition>  
+       
+         <!-- Login Page  -->
+    <definition name="login" extends="base.definition">  
+        <put-attribute name="title" value="Login" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/login.jsp" />  
+    </definition> 
+    
+         <!-- Parking View  -->
+    <definition name="parking" extends="base.definition">  
+        <put-attribute name="title" value="Parking View" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/parkingview.jsp" />  
+    </definition> 
+    
+      <!-- Parking List View  -->
+    <definition name="parkinglist" extends="base.definition">  
+        <put-attribute name="title" value="Parking View List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/parkinglistview.jsp" />  
+    </definition> 
+    
+    <!-- User List View  -->
+    <definition name="userlist" extends="base.definition">  
+        <put-attribute name="title" value="User View List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/userlistview.jsp" />  
+    </definition> 
+     
+           <!-- Booking View  -->
+    <definition name="booking" extends="base.definition">  
+        <put-attribute name="title" value="Booking View" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/bookingview.jsp" />  
+    </definition> 
+    
+      <!-- Booking List View  -->
+    <definition name="bookinglist" extends="base.definition">  
+        <put-attribute name="title" value="Booking View List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/bookinglistview.jsp" />  
+    </definition> 
+     
+         <!-- Payment View  -->
+    <definition name="payment" extends="base.definition">  
+        <put-attribute name="title" value="Payment View" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/paymentview.jsp" />  
+    </definition> 
+    
+      <!-- Payment List View  -->
+    <definition name="paymentlist" extends="base.definition">  
+        <put-attribute name="title" value="Payment View List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/paymentlistview.jsp" />  
+    </definition> 
+    
+         <!-- View Slots List View  -->
+    <definition name="viewslots" extends="base.definition">  
+        <put-attribute name="title" value="View slots List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/viewslots.jsp" />  
+    </definition> 
+    
+           <!-- Movie View  -->
+    <definition name="movie" extends="base.definition">  
+        <put-attribute name="title" value="View slots List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/movieview.jsp" />  
+    </definition> 
+    
+    
+           <!-- Movie List View  -->
+    <definition name="movieslist" extends="base.definition">  
+        <put-attribute name="title" value="View slots List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/movielistview.jsp" />  
+    </definition> 
+    
+             <!-- Movie grid List View  -->
+    <definition name="moviegrid" extends="base.definition">  
+        <put-attribute name="moviegrid" value="Movie" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/moviegrid.jsp" />  
+    </definition> 
+    
+            <!--movie booking view.jsp  -->
+    <definition name="moviebookingview" extends="base.definition">  
+        <put-attribute name="title" value="movie booking view" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/moviebookingview.jsp" />  
+    </definition> 
+    
+             <!-- moviebookingviewlist.jsp  -->
+    <definition name="moviebookingviewlist" extends="base.definition">  
+        <put-attribute name="moviebookingviewlist" value="moviebookingviewlist" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/moviebookingviewlist.jsp" />  
+    </definition> 
+    
+          <!-- seatview.jsp  -->
+    <definition name="seatview" extends="base.definition">  
+        <put-attribute name="seatview" value="seatview" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/seatview.jsp" />  
+    </definition> 
+    
+              <!-- seatview.jsp  -->
+    <definition name="moviebookingview" extends="base.definition">  
+        <put-attribute name="moviebookingview" value="moviebookingview" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/moviebookingview.jsp" />  
+    </definition> 
+    
+             <!-- Payment View  -->
+    <definition name="payment" extends="base.definition">  
+        <put-attribute name="title" value="Payment View" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/paymentview.jsp" />  
+    </definition> 
+    
+      <!-- Payment List View  -->
+    <definition name="paymentlist" extends="base.definition">  
+        <put-attribute name="title" value="Payment View List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/paymentlistview.jsp" />  
+    </definition> 
+    
+             <!-- Food View  -->
+    <definition name="food" extends="base.definition">  
+        <put-attribute name="title" value="Food View" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodview.jsp" />  
+    </definition> 
+    
+      <!-- Food List View  -->
+    <definition name="foodlist" extends="base.definition">  
+        <put-attribute name="title" value="Food View List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodlistview.jsp" />  
+    </definition> 
+    
+           <!-- Stall View  -->
+    <definition name="foodstall" extends="base.definition">  
+        <put-attribute name="title" value="Food Stall View" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodstallview.jsp" />  
+    </definition> 
+    
+      <!-- Food List View  -->
+    <definition name="foodstalllist" extends="base.definition">  
+        <put-attribute name="title" value="Food Stall View List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodstalllistview.jsp" />  
+    </definition> 
+    
+     <!-- stalldropdownlist  -->
+    <definition name="stalldropdownviewlist" extends="base.definition">  
+        <put-attribute name="title" value="stalldropdownlist" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/stalldropdownlist.jsp" />  
+    </definition>
+    
+     <definition name="stalldropdownlist" extends="base.definition">  
+        <put-attribute name="title" value="stalldropdownlist" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/stalldropdowntoviewlist.jsp" />  
+    </definition>
+    
+          <!-- Food Menu View -->
+    <definition name="foodmenuitem" extends="base.definition">  
+        <put-attribute name="title" value="Menu View List" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodmenuitemview.jsp" />  
+    </definition> 
+    
+     <!-- Menu Item List View  -->
+    <definition name="foodmenuitemlist" extends="base.definition">  
+        <put-attribute name="title" value="stalldropdownlist" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodmenuitemlistview.jsp" />  
+    </definition>
+
+      <!-- viewcart  -->
+    <definition name="foodcartview" extends="base.definition">  
+        <put-attribute name="title" value="stalldropdownlist" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodcartview.jsp" />  
+    </definition>
+    
+     <!-- Food Payment View  -->
+    <definition name="foodpaymentview" extends="base.definition">  
+        <put-attribute name="title" value="foodpaymentview" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodpaymentview.jsp" />  
+    </definition>
+
+      <!-- Food Payment List View  -->
+    <definition name="foodpaymentlistview" extends="base.definition">  
+        <put-attribute name="title" value="foodpaymentlistview" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodpaymentlistview.jsp" />  
+    </definition>
+    
+      <!-- Food Booking history List View  -->
+    <definition name="foodbookinghistorylistview" extends="base.definition">  
+        <put-attribute name="title" value="foodbookinghistorylistview" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/foodbookinghistorylistview.jsp" />  
+    </definition>
+    
+    
+          <!-- Game View  -->
+    <definition name="game" extends="base.definition">  
+        <put-attribute name="title" value="game" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/gameview.jsp" />  
+    </definition>
+    
+      <!-- Game List View  -->
+    <definition name="gamelist" extends="base.definition">  
+        <put-attribute name="title" value="game list" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/gamelistview.jsp" />  
+    </definition>
+    
+      <!-- Game Recharge View  -->
+    <definition name="gamerecharge" extends="base.definition">  
+        <put-attribute name="title" value="gamerecharge" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/gamerecharge.jsp" />  
+    </definition>
+    
+    
+      
+          <!-- Shop View  -->
+    <definition name="shop" extends="base.definition">  
+        <put-attribute name="title" value="Shop" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/shopview.jsp" />  
+    </definition>
+    
+      <!-- Shop List View  -->
+    <definition name="shoplist" extends="base.definition">  
+        <put-attribute name="title" value="Shop list" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/shoplistview.jsp" />  
+    </definition>
+
+<!-- Event View  -->
+    <definition name="event" extends="base.definition">  
+        <put-attribute name="title" value="Event" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/eventview.jsp" />  
+    </definition>
+    
+      <!-- Event List View  -->
+    <definition name="eventlist" extends="base.definition">  
+        <put-attribute name="title" value="Event list" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/eventlistview.jsp" />  
+    </definition>
+    
+    <!-- Job View  -->
+    <definition name="job" extends="base.definition">  
+        <put-attribute name="title" value="Job" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/jobview.jsp" />  
+    </definition>
+    
+      <!-- Job List View  -->
+    <definition name="joblist" extends="base.definition">  
+        <put-attribute name="title" value="Job list" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/joblistview.jsp" />  
+    </definition>
+    
+        <!-- Apply Job View  -->
+    <definition name="applyjob" extends="base.definition">  
+        <put-attribute name="title" value="Job" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/applyjobview.jsp" />  
+    </definition>
+    
+      <!--Apply Job List View  -->
+    <definition name="applyjoblist" extends="base.definition">  
+        <put-attribute name="title" value="Job list" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/applyjoblistview.jsp" />  
+    </definition>
+    
+      <!-- Deal View  -->
+    <definition name="deal" extends="base.definition">  
+        <put-attribute name="title" value="Deal" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/dealview.jsp" />  
+    </definition>
+    
+      <!--Deal List View  -->
+    <definition name="deallist" extends="base.definition">  
+        <put-attribute name="title" value="Deal list" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/deallistview.jsp" />  
+    </definition>
+    
+         <!--Game details  -->
+    <definition name="gamedetails" extends="base.definition">  
+        <put-attribute name="title" value="Deal list" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/gamedetails.jsp" />  
+    </definition>
+    
+        <!--viewbookedticket  -->
+    <definition name="viewbookedticket" extends="base.definition">  
+        <put-attribute name="title" value="Ticket" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/viewbookedticket.jsp" />  
+    </definition>
+
+    
+   
+</tiles-definitions> 
