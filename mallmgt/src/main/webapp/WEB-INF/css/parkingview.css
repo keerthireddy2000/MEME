@@ -1,0 +1,32 @@
+.card-registration{
+border-radius: 15px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+background-color: black !important;
+color: white;
+}
+.form-control-lg {
+    padding: 0.3rem 1rem !important;
+}
+.form-check-inline {
+ margin-top : 10px;
+}
+.image-class{
+	margin-top: -150px;
+}
+img{
+	width: 600px;
+	height: 500px;
+}
+
+.btn{
+	border-color: white; 
+	color: black; 
+	background-color: white;
+	font-weight: bold;
+}
+.btn:hover{
+	border-color: white; 
+	color: black; 
+	background-color: white;
+	font-weight: bold;
+}
