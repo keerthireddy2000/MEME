@@ -1,0 +1,35 @@
+
+@media (min-width: 1200px){
+	.content {
+    max-width: 1350px;
+}
+}
+
+thead{
+	background-color: black;
+	color: white;
+}
+th{
+	font-weight: 400;
+}
+table{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.table td, .table th {
+    vertical-align: middle !important;
+    
+}
+
+i {
+    color: black;
+}
+.fa-trash{
+	margin-left: 8px;
+}
+
+.container{
+    margin-left: 70px;
+    margin-right: 70px !important;
+}
+
+
