@@ -1,0 +1,41 @@
+@media (min-width: 1200px){
+	.content {
+    max-width: 1200px;
+}
+}
+
+.row{
+    padding: 15px;
+}
+.card{
+	background-color: black;
+	color: white;
+	border-radius : 10px;
+}
+
+.card-img-top {
+    width: 70%;
+    height: 250px !important;
+    margin-left: 15%;
+}
+.btn{
+	border-color: white; 
+	color: black; 
+	background-color: white;
+	font-weight: bold;
+}
+.btn:hover{
+	border-color: white; 
+	color: black; 
+	background-color: white;
+	font-weight: bold;
+}
+a{
+	color: white;
+    text-decoration: none;
+}
+a:hover{
+	color: white;
+    text-decoration: none !important;
+}
+  
