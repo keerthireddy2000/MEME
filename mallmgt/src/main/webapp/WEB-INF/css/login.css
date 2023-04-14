@@ -1,0 +1,23 @@
+.newUser{
+	font-weight:bold;
+}
+.createAccnt{
+	color:#007bff;
+	font-weight:bold;
+	text-decoration: none !important;
+}
+a{
+	text-decoration: none !important;
+}
+.btn{
+	border-color: black; 
+	color: white; 
+	background-color: black;
+	font-weight: bold;
+}
+.btn:hover{
+	border-color: black; 
+	color: white; 
+	background-color: black;
+	font-weight: bold;
+}
