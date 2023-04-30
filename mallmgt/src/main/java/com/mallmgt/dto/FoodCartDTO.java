@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="foodcart")
+@Table(name = "foodcart")
 @Getter
 @Setter
 public class FoodCartDTO extends BaseDTO {

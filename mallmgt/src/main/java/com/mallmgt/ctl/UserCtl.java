@@ -58,7 +58,6 @@ public class UserCtl {
 			}
 		}
 		catch (RecordNotFoundException e) {
-			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 			e.printStackTrace();
 			return "registration";
@@ -84,7 +83,6 @@ public class UserCtl {
 	@GetMapping("/userDelete")	
 	public String delete(@ModelAttribute("form")UserForm form, Model model, @RequestParam("id") long id ) throws Exception{
 		service.delete(id);	
-		
 		List<UserDTO> list =	service.list();
 		model.addAttribute("list", list);
 		model.addAttribute("success", "User Deleted successfully");
@@ -94,7 +92,6 @@ public class UserCtl {
 	@GetMapping("/MyProfile")	
 	public String myprofile(@ModelAttribute("form")UserForm form, Model model, @RequestParam("id") long id ) throws Exception{
 		service.delete(id);	
-		
 		List<UserDTO> list =	service.list();
 		model.addAttribute("list", list);
 		model.addAttribute("success", "User Deleted successfully");

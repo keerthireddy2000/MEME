@@ -21,12 +21,9 @@ public class UserService {
 	public UserDTO Add(UserDTO dto) {
 	UserDTO user = null;
 	user = dao.findByEmail(dto.getEmail());
-	System.out.println("user by email........: "+user);
 	if(user != null)
-		throw new RecordNotFoundException("Email is already exists..");
-	    System.out.println("dto Before Save: "+dto);
+		throw new RecordNotFoundException("Email already exists !");
 	    user = dao.save(dto);
-	   
        return  user;
 	}
 	

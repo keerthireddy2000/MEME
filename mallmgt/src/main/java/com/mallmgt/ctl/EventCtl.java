@@ -34,19 +34,14 @@ public class EventCtl {
 
 	@Autowired
 	public EventService service;
-	
-	
 
 	@GetMapping("/event")
 	public String event(@ModelAttribute("form")EventForm form, Model model) {
-
 		return "event";
 	}
 
 	@PostMapping("/addEvent")
 	public String Add(@RequestParam(value = "image") MultipartFile image, @Valid @ModelAttribute("form")EventForm form,  BindingResult bindingResult, Model model) throws IOException {
-
-		System.out.println("form: "+form);
 		try {
 			if (bindingResult.hasErrors()) {
 				System.out.println("bindingResult : "+bindingResult);
@@ -67,7 +62,6 @@ public class EventCtl {
 			}
 		}
 		catch (RecordNotFoundException e) {
-			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 			e.printStackTrace();
 			return "event";

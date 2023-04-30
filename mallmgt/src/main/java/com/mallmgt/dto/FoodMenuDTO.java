@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="foodmenu")
+@Table(name = "foodmenu")
 @Getter
 @Setter
 public class FoodMenuDTO extends BaseDTO {

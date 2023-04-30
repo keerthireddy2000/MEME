@@ -62,7 +62,6 @@ public class DealCtl {
 			
 			return "deal";
 		}}catch (RecordNotFoundException e) {
-			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 			e.printStackTrace();
 			return "deal";
@@ -71,9 +70,9 @@ public class DealCtl {
 	
 	@GetMapping("/dealList")
 	public String list(@ModelAttribute("form")DealForm form, Model model){
-	List<DealDTO> list = service.list();
-	model.addAttribute("list", list);
-	return "deallist";
+		List<DealDTO> list = service.list();
+		model.addAttribute("list", list);
+		return "deallist";
 		
 	}
 	
