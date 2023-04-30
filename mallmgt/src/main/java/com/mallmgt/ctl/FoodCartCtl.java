@@ -89,12 +89,17 @@ public class FoodCartCtl {
 		FoodCartDTO dto = service.findById(id);
 		
 		FoodMenuDTO food =	foodMenuService.findMenuItemById(dto.getFoodId());
-		if(dto.getFoodPrice()>food.getFoodPrice())
-		{
-			dto.setFoodPrice(dto.getFoodPrice()-food.getFoodPrice());
-		}
 		
-		service.update(dto);
+			long q = dto.getQuantity();
+			q  = q-1;
+			if(q == 0) {
+				service.delete(dto);		
+			}
+			else {
+				dto.setFoodPrice(dto.getFoodPrice()-food.getFoodPrice());
+				dto.setQuantity(q);
+				service.update(dto);
+			}
 		return "redirect:/viewCart";
 	}
 	
