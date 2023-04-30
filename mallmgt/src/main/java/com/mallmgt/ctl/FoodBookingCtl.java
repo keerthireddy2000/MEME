@@ -54,7 +54,7 @@ public class FoodBookingCtl {
 	   UserDTO user = (UserDTO)session.getAttribute("user");	
 		List<FoodCartDTO> list = foodCartService.findCartInfoByUserId(user.getId());
 		model.addAttribute("list", list);
-	 
+	 	model.addAttribute("user", user);
 		return "redirect:/foodBookingHistory";
 	}
 	
@@ -76,7 +76,7 @@ public class FoodBookingCtl {
 	@GetMapping("/rejectFoodBooking")
 	public String rejectFoodBooking(Model model, @RequestParam("id") long id, HttpSession session) {		
 	
-		System.out.println("Ready To Pick Id:" +id);
+		
 	 FoodCartDTO dto =	foodCartService.findById(id);
 	 dto.setStatus("Rejected");	
 	 foodCartService.update(dto);
@@ -84,7 +84,7 @@ public class FoodBookingCtl {
 	   UserDTO user = (UserDTO)session.getAttribute("user");	
 		List<FoodCartDTO> list = foodCartService.findCartInfoByUserId(user.getId());
 		model.addAttribute("list", list);
-	 
+	 	model.addAttribute("User", user);
 		return "redirect:/foodBookingHistory";
 	}
 	
