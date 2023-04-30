@@ -8,11 +8,7 @@ public class DataValidator {
 	public static boolean isName(String val) {
 
 		String name = "^[A-Za-z ]*$";
-		/*
-		 * if (isNotNull(val)) { return val.matches(name);
-		 * 
-		 * } else { return false; }
-		 */
+		
 		if (val.matches(name)) {
 			return true;
 		} else {
@@ -86,17 +82,6 @@ public class DataValidator {
 		}
 	}
 
-	/*public static boolean isIntegerName(String val) {
-		String match = "^[0-9]{3}$";
-
-		if (val.matches(match)) {
-			return true;
-		} else {
-			return false;
-		}
-
-	}*/
-
 	
 	public static boolean isEmail(String val) {
 
@@ -124,20 +109,6 @@ public class DataValidator {
 	}
 
 	public static void main(String[] args) {
-
-		// System.out.println(isPhoneNo("1234567abc"));
-
-		/*
-		 * System.out.println("Not Null 2" + isNotNull("ABC"));
-		 * System.out.println("Not Null 3" + isNotNull(null));
-		 * System.out.println("Not Null 4" + isNull("123"));
-		 * 
-		 * System.out.println("Is Int " + isInteger(null)); System.out.println(
-		 * "Is Int " + isInteger("ABC1")); System.out.println("Is Int " +
-		 * isInteger("123")); System.out.println("Is Int " + isNotNull("123"));
-		 */
-		// System.out.println(isPhoneNo("9926913693"));
-		// System.out.println(isName("rohan jain"));
 		System.out.println(isInteger("87"));
 		System.out.println("os password :"+isPassword("Manoj@123"));
 
