@@ -1,0 +1,200 @@
+li{
+	margin-right: 10px;
+}
+.profile-dropdown a{
+	padding: 8px;
+    width: fit-content;
+    
+}
+.dropdown-menu {
+	margin-left: -30px !important;
+	min-width: fit-content !important;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.menu-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-icon i {
+  font-size: 24px;
+}
+
+/* When the side navigation is shown, change the width to 250px */
+.sidenav.open {
+  width: 250px;
+}
+
+body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#navbar {
+			height: 100%;
+			position: fixed;
+			width: 250px;
+			background-color: #333;
+			padding-top: 50px;
+			transition: all 0.3s;
+			top: 0;
+			left: -250px;
+			z-index: 1;
+		}
+
+		#navbar ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#navbar ul li a {
+			display: block;
+			color: #fff;
+			padding: 20px;
+			text-decoration: none;
+			transition: all 0.3s;
+			border-bottom: 1px solid #666;
+		}
+
+		#navbar ul li a:hover {
+			background-color: #666;
+		}
+
+		#main {
+			margin-left: 250px;
+			transition: all 0.3s;
+			padding: 20px;
+		}
+
+		#navicon {
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			font-size: 30px;
+			color: #fff;
+			cursor: pointer;
+			z-index: 1;
+		}
+
+		#navicon:hover {
+			color: #666;
+		}
+
+		.open-nav {
+			left: 0;
+		}
+		
+		
+		
+		.dropdown-menu-left {
+  animation-duration: 0.5s;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+.menu-btn:hover{
+	border: none;
+}
+.menu-btn:focus{
+  outline: none;
+  box-shadow: none !important;
+}
+
+.dropdown-menu.show {
+    display: block;
+    height: 628px;
+}
+.profile-dropdown.show{
+	height: fit-content;
+}
+a{
+	text-decoration: none !important;
+	
+}
+.dropdown-menu a:hover{
+	background-color: #a9a9a9 !important;
+}
+ul{
+	list-style-type: none;
+}
+.submenu {
+  display: none;
+}
+
+.moviesdropdown:hover + .submenu,
+ .submenu:hover {
+ display: block;
+ }
+.parkingdropdown:hover + .submenu,
+ .submenu:hover {
+ display: block;
+ } 
+.fooddropdown:hover + .submenu,
+ .submenu:hover {
+ display: block;
+ }
+.jobdropdown:hover + .submenu,
+ .submenu:hover {
+ display: block;
+ } 
+ .gamedropdown:hover + .submenu,
+ .submenu:hover {
+ display: block;
+ }
+ .dropdown-menu.show {
+  width: 225px !important;
+  border-right: 1px solid white !important;
+}
+

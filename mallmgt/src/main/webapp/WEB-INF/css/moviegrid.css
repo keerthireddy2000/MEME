@@ -38,4 +38,33 @@ a:hover{
 	color: white;
     text-decoration: none !important;
 }
+.movies .btn{
+	border-color: black; 
+	color: white; 
+	background-color: black;
+	font-weight: bold;
+}
+.movies .btn:hover{
+	border-color: black; 
+	color: white; 
+	background-color: black;
+	font-weight: bold;
+}
+.dropdown-toggle::after {
+	display: none
+}
+.dropdown-toggle::before {
+	display: none
+}
+.dealcarousel {
+    position: relative;
+    width: 80%;
+    
+    margin-left: 10%;
+    margin-top: 4%;
+    overflow: hidden;
+}
+
+
+
   
