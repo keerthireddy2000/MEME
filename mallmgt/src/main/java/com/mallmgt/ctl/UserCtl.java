@@ -38,23 +38,26 @@ public class UserCtl {
 
 		System.out.println("form: "+form);
 		try {
-		if (bindingResult.hasErrors()) {
-			System.out.println("bindingResult : "+bindingResult);
-			return "registration";
-		}else {
-			UserDTO bean = form.getDTO();
-			if(form.getId()>0) {
-				bean.setUserRole("User");
-				service.update(bean);
-				model.addAttribute("success", "User Updated successfully");
-			}else {
-				bean.setUserRole("User");
-				service.Add(bean);
-				model.addAttribute("success", "Registration successfully");
+			if (bindingResult.hasErrors()) {
+				System.out.println("bindingResult : "+bindingResult);
+				return "registration";
 			}
-			
-			return "registration";
-		}}catch (RecordNotFoundException e) {
+			else {
+				UserDTO bean = form.getDTO();
+				if(form.getId()>0) {
+					bean.setUserRole("User");
+					service.update(bean);
+					model.addAttribute("success", "User Updated successfully");
+				}else {
+					bean.setUserRole("User");
+					service.Add(bean);
+					model.addAttribute("success", "Registration successfully");
+				}
+				
+				return "registration";
+			}
+		}
+		catch (RecordNotFoundException e) {
 			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 			e.printStackTrace();
@@ -64,9 +67,9 @@ public class UserCtl {
 	
 	@GetMapping("/userList")
 	public String list(@ModelAttribute("form")UserForm form, Model model){
-	List<UserDTO> list = service.list();
-	model.addAttribute("list", list);
-	return "userlist";
+		List<UserDTO> list = service.list();
+		model.addAttribute("list", list);
+		return "userlist";
 		
 	}
 	

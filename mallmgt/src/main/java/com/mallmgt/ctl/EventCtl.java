@@ -48,22 +48,25 @@ public class EventCtl {
 
 		System.out.println("form: "+form);
 		try {
-		if (bindingResult.hasErrors()) {
-			System.out.println("bindingResult : "+bindingResult);
-			return "event";
-		}else {
-			EventDTO bean = form.getDTO();			
-			bean.setImage(image.getBytes());
-			if(form.getId()>0) {
-				service.update(bean);
-				model.addAttribute("success", "Event Updated successfully");
-			}else {
-			service.Add(bean);
-			model.addAttribute("success", "Event Added successfully");
+			if (bindingResult.hasErrors()) {
+				System.out.println("bindingResult : "+bindingResult);
+				return "event";
 			}
-			
-			return "event";
-		}}catch (RecordNotFoundException e) {
+			else {
+				EventDTO bean = form.getDTO();			
+				bean.setImage(image.getBytes());
+				if(form.getId()>0) {
+					service.update(bean);
+					model.addAttribute("success", "Event Updated successfully");
+				}else {
+				service.Add(bean);
+				model.addAttribute("success", "Event Added successfully");
+				}
+				
+				return "event";
+			}
+		}
+		catch (RecordNotFoundException e) {
 			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 			e.printStackTrace();
@@ -73,9 +76,9 @@ public class EventCtl {
 	
 	@GetMapping("/eventList")
 	public String list(@ModelAttribute("form")EventForm form, Model model){
-	List<EventDTO> list = service.list();
-	model.addAttribute("list", list);
-	return "eventlist";
+		List<EventDTO> list = service.list();
+		model.addAttribute("list", list);
+		return "eventlist";
 		
 	}
 	
