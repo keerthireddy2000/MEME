@@ -21,11 +21,9 @@ public class DealService {
 	public DealDTO Add(DealDTO dto) {
 		DealDTO entity = null;
 		entity = dao.findByDealName(dto.getDealName());
-	System.out.println("Deal By Name........: "+entity);
 	
 	if(entity != null)
-		throw new RecordNotFoundException("shop is already exists..");
-	    System.out.println("dto Before Save: "+dto);
+		throw new RecordNotFoundException("Deal already exists !");
 	    entity = dao.save(dto);
        return  entity;
 	}

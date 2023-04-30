@@ -28,11 +28,9 @@ public class EventService {
 	public EventDTO Add(EventDTO dto) {
 		EventDTO entity = null;
 		entity = dao.findByEventName(dto.getEventName());
-	System.out.println("shop By Name........: "+entity);
 	
 	if(entity != null)
-		throw new RecordNotFoundException("shop is already exists..");
-	    System.out.println("dto Before Save: "+dto);
+		throw new RecordNotFoundException("Event already exists !");
 	    entity = dao.save(dto);
        return  entity;
 	}
