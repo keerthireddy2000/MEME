@@ -60,3 +60,4 @@ INDIVIDUAL CONTRIBUTIONS
 •   Implemented the Recharge card feature for the customer end, where customer an update the card balance.
 •   Developed the Job feature from the admin end, where the admin will be able to view all the jobs, update or delete the existing job and can also add new job to the job list.
 •   Implemented the Review applications for the admin end, admin has an option to view all the applied applications,  can accept or reject a appliction.
+•   Implemented the movie booking history for the customer end, where the customer will be able to view the all past bookings and can also view the tickets for the each booking.
