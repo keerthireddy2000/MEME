@@ -18,6 +18,9 @@ public class DealDTO extends BaseDTO{
 	
 	@Column(name = "description", length = 755)
 	private String description;
+	
+	@Column(name = "dealType", length = 755)
+	private String dealType;
 		
 	 @Column(name = "image", columnDefinition = "LONGBLOB")
 	    private byte[] image;

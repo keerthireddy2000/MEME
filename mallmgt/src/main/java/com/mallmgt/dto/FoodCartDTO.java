@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "foodcart")
+@Table(name="foodcart")
 @Getter
 @Setter
 public class FoodCartDTO extends BaseDTO {
@@ -36,6 +36,12 @@ public class FoodCartDTO extends BaseDTO {
 	@Column(name = "foodPrice")
 	private long foodPrice;
 	
+	@Column(name = "unitPrice")
+	private long unitPrice;
+	
+	@Column(name = "quantity")
+	private long quantity;
+	
 	@Column(name = "deliveryTime", length = 755)
 	private String deliveryTime;
 	
@@ -52,7 +58,7 @@ public class FoodCartDTO extends BaseDTO {
 	public String toString() {
 		return "FoodCartDTO [stallId=" + stallId + ", stallName=" + stallName + ", foodName=" + foodName
 				+ ", foodPrice=" + foodPrice + ", deliveryTime=" + deliveryTime + ", paymentStatus=" + paymentStatus
-				+ "]";
+				+  ", quantity=" + quantity + ", unitPrice=" + unitPrice + "]";
 	}
 	
 	

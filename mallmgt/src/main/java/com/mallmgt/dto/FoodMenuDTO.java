@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "foodmenu")
+@Table(name="foodmenu")
 @Getter
 @Setter
 public class FoodMenuDTO extends BaseDTO {
@@ -19,6 +19,9 @@ public class FoodMenuDTO extends BaseDTO {
 	@Column(name = "stallName", length = 755)
 	private String stallName;
 	
+	@Column(name = "cuisine", length = 755)
+	private String cuisine;
+	
 	@Column(name = "foodName", length = 755)
 	private String foodName;
 	
@@ -27,11 +30,14 @@ public class FoodMenuDTO extends BaseDTO {
 	
 	@Column(name = "deliveryTime", length = 755)
 	private String deliveryTime;
+	
+	@Column(name = "image", columnDefinition = "LONGBLOB")
+	private byte[] image;
 
 	@Override
 	public String toString() {
 		return "FoodMenuDTO [stallId=" + stallId + ", stallName=" + stallName + ", foodName=" + foodName
-				+ ", foodPrice=" + foodPrice + ", deliveryTime=" + deliveryTime + "]";
+				+ ", foodPrice=" + foodPrice + ", deliveryTime=" + deliveryTime +  ", cuisine=" + cuisine +"]";
 	}
 	
 	
