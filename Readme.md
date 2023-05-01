@@ -47,6 +47,11 @@ INDIVIDUAL CONTRIBUTIONS
 •	Developed view feature for the user to view flash deals and mega deals.
 
 # Charan Kasala
+•	Developed the shop specifics feature from the Administrator end, where the application enables the administrator to manage shops present at the mall and their details.
+•	Developed the View parking lots, and parking spaces features from Customer end that enables the customers to view the availability of the parking lots and spaces in the mall.
+•	Developed the view Food Stall and Menu features from the Customer end that enables the Customer to view various food stalls that are available in the mall and view menu items available in a specific food stall.
+•	Developed the hamburger menu view which will display the list based on the category of the Administrator/ Food Admin/user.
+•	Also worked on the view and update profile of the logged in user.
 
 # Nikhitha Bijjala
 •	Designed the home page of the application with the functionality to navigating to the respective service when clicked on the any of the service 
