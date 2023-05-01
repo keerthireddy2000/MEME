@@ -1,6 +1,8 @@
 package com.mallmgt.ctl;
 
 import java.util.List;
+import java.util.ArrayList;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -33,6 +35,9 @@ public class FoodCartCtl {
 	public String foodMenu(Model model, @RequestParam("id") long id, HttpSession session) {
 	    
 		UserDTO user = (UserDTO) session.getAttribute("user");
+		if(user==null) {
+			return "login";
+		}
 		
 		FoodMenuDTO dto =	foodMenuService.findMenuItemById(id);
 		FoodCartDTO dto2 = new FoodCartDTO();
@@ -41,6 +46,7 @@ public class FoodCartCtl {
 		dto2.setFoodName(dto.getFoodName());
 		dto2.setFoodId(id);
 		dto2.setFoodPrice(dto.getFoodPrice());
+		dto2.setUnitPrice(dto.getFoodPrice());
 		dto2.setPaymentStatus("Not Paid");
 		dto2.setDeliveryStatus("In Process");
 		dto2.setStallId(dto.getStallId());
@@ -48,6 +54,7 @@ public class FoodCartCtl {
 		dto2.setUserId(user.getId());
 		dto2.setOrderby(user.getEmail());
 		dto2.setStatus("In Process");
+		dto2.setQuantity(1);
 		service.add(dto2);
 		List<FoodMenuDTO> itemList = foodMenuService.findByStallId(dto.getStallId());
 	    model.addAttribute("list", itemList);
@@ -61,12 +68,40 @@ public class FoodCartCtl {
 	    
 		UserDTO user = (UserDTO) session.getAttribute("user");
 	    List<FoodCartDTO> list = service.list("Not Paid");
+	    List<FoodCartDTO> final_list = new ArrayList<FoodCartDTO>();
+	    Boolean flag = false;
+	    int count =0;
+	    for(int i=0;i<list.size(); i++) {
+	    	flag = false;
+	    	int j = 0;
+	    	long price = list.get(i).getUnitPrice();
+	    	for(j =0; j<final_list.size(); j++) {
+	    		if(list.get(i).getFoodId() == final_list.get(j).getFoodId()) {
+	    			flag = true;
+	    			break;
+	    		}
+	    	}
+	    	if(flag == false) {
+	    		final_list.add(list.get(i));
+	    	}
+	    	else {
+	    		long quantity = list.get(i).getQuantity();
+	    		quantity = quantity +1 ;
+	    		list.get(i).setQuantity(quantity);
+	    		price += list.get(i).getFoodPrice();
+	    		list.get(i).setFoodPrice(price);
+	    		final_list.remove(j);
+	    		final_list.add(list.get(i));
+	    	}
+	    }
+	    
 	    long totalPrice = 0;
-	    for (FoodCartDTO foodCartDTO : list) {
+	    for (FoodCartDTO foodCartDTO : final_list) {
 	    	totalPrice = foodCartDTO.getFoodPrice() + totalPrice;
 		}
+	    System.out.println(final_list);
 	    model.addAttribute("totalPrice", totalPrice);
-	    model.addAttribute("list", list);
+	    model.addAttribute("list", final_list);
 		return "foodcartview";
 	}
 	
@@ -75,9 +110,13 @@ public class FoodCartCtl {
 	    
 		FoodCartDTO dto = service.findById(id);
 		FoodMenuDTO food =	foodMenuService.findMenuItemById(dto.getFoodId());
-		
-		dto.setFoodPrice(dto.getFoodPrice()+food.getFoodPrice());
-		
+		long quantity = dto.getQuantity();
+		quantity = quantity + 1;
+		dto.setQuantity(quantity);
+		long pr= dto.getUnitPrice()*quantity;
+		System.out.println(dto.getUnitPrice()+" " + dto.getFoodPrice() + " " + pr);
+		dto.setFoodPrice(pr);
+		System.out.println(dto.getUnitPrice()+" " + dto.getFoodPrice() + " " + pr);
 		service.update(dto);
 		return "redirect:/viewCart";
 	}

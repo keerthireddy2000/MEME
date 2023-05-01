@@ -143,6 +143,29 @@ public class MovieCtl {
 		return "movieslist";
 	}
 	
+	@PostMapping("/searchMovieByFilter")
+	public String MoviesByFilter(@ModelAttribute("form") MovieForm form, Model model, @RequestParam("genre") String genre) {
+		System.out.println("form.getOperation(): "+form.getOperation());
+		List<MovieDTO> list =	service.searchByGenreOrLanguageOrFormat(genre);
+		if (form.getOperation().equalsIgnoreCase("Reset")) {
+			System.out.println("Required Operation: "+form.getOperation());
+			return "redirect:/movieList";
+		}	
+		model.addAttribute("list", list);
+		return "movieslist";
+	}
+	
+	@PostMapping("/searchMovieByFilter2")
+	public String MoviesByFilter2(@ModelAttribute("form") MovieForm form, Model model, @RequestParam("genre") String genre) {
+		System.out.println("form.getOperation(): "+form.getOperation());
+		List<MovieDTO> list =	service.searchByGenreOrLanguageOrFormat(genre);
+		if (form.getOperation().equalsIgnoreCase("Reset")) {
+			return "redirect:/movieGrid";
+		}	
+		model.addAttribute("list", list);
+		return "moviegrid";
+	}
+	
 	@GetMapping("/updateSeat")
 	public String updateSeat(@ModelAttribute("form")MovieForm form, Model model, @RequestParam("id") long id,@RequestParam("movieId") long movieId) {
 		

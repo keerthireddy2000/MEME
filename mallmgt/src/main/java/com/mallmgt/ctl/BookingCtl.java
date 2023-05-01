@@ -1,5 +1,6 @@
 package com.mallmgt.ctl;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,7 @@ import com.mallmgt.dto.SlotDTO;
 import com.mallmgt.dto.UserDTO;
 import com.mallmgt.exception.RecordNotFoundException;
 import com.mallmgt.form.BookingForm;
+import com.mallmgt.form.ParkingForm;
 import com.mallmgt.service.BookingService;
 import com.mallmgt.service.ParkingService;
 
@@ -56,9 +58,27 @@ public class BookingCtl {
 		return "booking";
 	}
 	
+	@GetMapping("/bookBySlotById")	
+	public String viewSlotById(@ModelAttribute("form")BookingForm form, Model model, @RequestParam("slotId") long slotId, HttpSession session ){
+		UserDTO user = (UserDTO)session.getAttribute("user");
+		if(user==null) {
+			return "login";
+		}
+		SlotDTO slot = slotDAO.findById(slotId);
+		ParkingDTO parkingDTO = parkingService.findParkingById(slot.getParkingId());
+		System.out.println(parkingDTO.getId() + " " + slot.getSlot() + " " + slot.getId());
+		List<SlotDTO> slotList = slotDAO.findByParkingIdAndStatus(parkingDTO.getId(), true);		
+		model.addAttribute("slotList", slotList);
+		model.addAttribute("user", user);
+		model.addAttribute("slotId", slot.getId());
+		model.addAttribute("slot", slot.getSlot());
+		model.addAttribute("parkingDTO", parkingDTO);
+		return "booking";
+	}
+	
 	@PostMapping("/addBooking")
 	public String Add(@Valid @ModelAttribute("form")BookingForm form,  BindingResult bindingResult, Model model) {
-
+		System.out.println("jdsj");
 		System.out.println("form: "+form);
 		try {
 		if (bindingResult.hasErrors()) {
@@ -67,9 +87,10 @@ public class BookingCtl {
 		}else {
 			BookingDTO bean = form.getDTO();
 			bean.setId(0);
-		    SlotDTO slotDTO =	slotDAO.findById(bean.getSlotId());			
-			bean.setSlot(slotDTO.getSlot());
-			bean.setSlotId(slotDTO.getId());
+		    //SlotDTO slotDTO = slotDAO.findById(bean.getSlotId());			
+			//bean.setSlot(slotDTO.getSlot());
+			//bean.setSlotId(slotDTO.getId());
+			System.out.println(bean.getSlot() +" " + bean.getSlotId());
 			bean.setStatus("Cancel");
 			service.Add(bean);
 			//model.addAttribute("success", "Booking successfully");
@@ -94,6 +115,7 @@ public class BookingCtl {
 		}else {
 			list = service.findBookingByEmail(email);
 		}
+		
 	model.addAttribute("list", list);
 	return "bookinglist";
 		

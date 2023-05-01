@@ -1,17 +1,25 @@
 package com.mallmgt.ctl;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mallmgt.dto.FoodMenuDTO;
 import com.mallmgt.dto.FoodStallDTO;
@@ -56,6 +64,7 @@ public class FoodMenuCtl {
 		FoodMenuDTO dto = form.getDTO();
 		dto.setStallId(stallId);
 		dto.setStallName(stallDto.getStallName());
+		dto.setCuisine(stallDto.getCuisine());
 	   System.out.println("Stall details to add food item: "+dto+ "stallId: "+stallId);
 	
 	model.addAttribute("dto", dto);
@@ -76,7 +85,7 @@ public class FoodMenuCtl {
 	
 	
 	@PostMapping("/addFoodMenu")
-	public String Add(@Valid @ModelAttribute("form")FoodMenuForm form,  BindingResult bindingResult, Model model) {
+	public String Add(@Valid @ModelAttribute("form")FoodMenuForm form,  BindingResult bindingResult, Model model, @RequestParam(value = "image") MultipartFile image) throws IOException {
 
 		System.out.println("form: "+form);
 		try {
@@ -85,7 +94,7 @@ public class FoodMenuCtl {
 			return "foodmenuitem";
 		}else {
 			FoodMenuDTO bean = form.getDTO();
-			
+			bean.setImage(image.getBytes());
 			System.out.println("Menu Item Before Save: "+bean);
 			
 			if(form.getId()>0) {
@@ -134,6 +143,24 @@ public class FoodMenuCtl {
 		return "foodmenuitemlist";
 	}
 	
+	@GetMapping("/getMenuImage/{id}")
+	public void getMenuImage(HttpServletResponse response, @PathVariable("id") long id) throws Exception {
+		response.setContentType("image/jpeg");		
+		Blob blb=service.getImageById(id);				
+		byte[] bytes = blb.getBytes(1, (int) blb.length());
+		InputStream inputStream = new ByteArrayInputStream(bytes);
+		IOUtils.copy(inputStream, response.getOutputStream());
 	
+	}
+	
+	@GetMapping("/getFoodStallImage/{id}")
+	public void getFoodStallImage(HttpServletResponse response, @PathVariable("id") long id) throws Exception {
+		response.setContentType("image/jpeg");		
+		Blob blb= stallService.getImageById(id);				
+		byte[] bytes = blb.getBytes(1, (int) blb.length());
+		InputStream inputStream = new ByteArrayInputStream(bytes);
+		IOUtils.copy(inputStream, response.getOutputStream());
+	
+	}
 	
 }

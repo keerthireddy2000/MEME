@@ -34,7 +34,12 @@ public class FoodBookingCtl {
 		UserDTO dto = (UserDTO) session.getAttribute("user");	
 		if(dto.getUserRole().equals("Admin")) {
 			list = foodCartService.list();
-		}else {
+		}
+		else if(dto.getUserRole().equals("FoodAdmin")) {
+			long foodStallId = Long.parseLong(dto.getFoodStallId());
+			list = foodCartService.findCartInfoByStallId(foodStallId);
+		}
+		else {
 			list = foodCartService.findCartInfoByUserId(dto.getId());
 		}
 		 

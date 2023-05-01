@@ -50,7 +50,10 @@ public class DealCtl {
 			System.out.println("bindingResult : "+bindingResult);
 			return "deal";
 		}else {
-			DealDTO bean = form.getDTO();			
+			DealDTO bean = form.getDTO();
+			if(bean.getDealType() == null) {
+				bean.setDealType("false");
+			}
 			bean.setImage(image.getBytes());
 			if(form.getId()>0) {
 				service.update(bean);
@@ -62,6 +65,7 @@ public class DealCtl {
 			
 			return "deal";
 		}}catch (RecordNotFoundException e) {
+			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 			e.printStackTrace();
 			return "deal";
@@ -70,9 +74,9 @@ public class DealCtl {
 	
 	@GetMapping("/dealList")
 	public String list(@ModelAttribute("form")DealForm form, Model model){
-		List<DealDTO> list = service.list();
-		model.addAttribute("list", list);
-		return "deallist";
+	List<DealDTO> list = service.list();
+	model.addAttribute("list", list);
+	return "deallist";
 		
 	}
 	
@@ -80,6 +84,9 @@ public class DealCtl {
 	@GetMapping("/dealEdit")	
 	public String update(@ModelAttribute("form")DealForm form, Model model, @RequestParam("id") long id ){
 		DealDTO bean = service.findDealDTO(id);
+		if(bean.getDealType() == "false") {
+			bean.setDealType(null);
+		}
 		form.populate(bean);
 		model.addAttribute("bean",bean);	
 		return "deal";

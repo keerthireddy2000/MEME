@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mallmgt.dto.FoodStallDTO;
+import com.mallmgt.dto.MovieDTO;
 import com.mallmgt.exception.RecordNotFoundException;
 import com.mallmgt.form.FoodStallForm;
+import com.mallmgt.form.MovieForm;
 import com.mallmgt.service.FoodStallService;
 
 @Controller
@@ -47,6 +49,7 @@ public class FoodStallCtl {
 			return "foodstall";
 		}else {
 			FoodStallDTO bean = form.getDTO();
+			System.out.println(bean.getCuisine() + " " + bean.getStallLocation());
 			bean.setImage(image.getBytes());
 			if(form.getId()>0) {
 
@@ -86,10 +89,21 @@ public class FoodStallCtl {
 	@GetMapping("/foodStallDelete")	
 	public String delete(@ModelAttribute("form")FoodStallForm form, Model model, @RequestParam("id") long id ) throws Exception{
 		service.delete(id);	
-		
 		List<FoodStallDTO> list =	service.list();
 		model.addAttribute("list", list);
 		model.addAttribute("success", "Stall Deleted successfully");
+		return "foodstalllist";
+	}
+	
+	@PostMapping("/searchStallByFilter")
+	public String FoodStallByFilter(@ModelAttribute("form") FoodStallForm form, Model model, @RequestParam("cuisine") String cuisine) {
+		System.out.println("form.getOperation(): "+form.getOperation());
+		List<FoodStallDTO> list =	service.searchByCuisine(cuisine);
+		if (form.getOperation().equalsIgnoreCase("Reset")) {
+			System.out.println("Required Operation: "+form.getOperation());
+			return "redirect:/foodStallList";
+		}	
+		model.addAttribute("list", list);
 		return "foodstalllist";
 	}
 	

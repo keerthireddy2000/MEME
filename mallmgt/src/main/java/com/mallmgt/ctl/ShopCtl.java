@@ -43,7 +43,7 @@ public class ShopCtl {
 	}
 
 	@PostMapping("/addShop")
-	public String Add(@RequestParam(value = "image") MultipartFile image, @Valid @ModelAttribute("form")ShopForm form,  BindingResult bindingResult, Model model) throws IOException {
+	public String Add(@RequestParam(value = "image") MultipartFile image, @Valid @ModelAttribute("form")ShopForm form,  BindingResult bindingResult, Model model) throws Exception {
 
 		System.out.println("form: "+form);
 		try {
@@ -51,14 +51,23 @@ public class ShopCtl {
 			System.out.println("bindingResult : "+bindingResult);
 			return "shop";
 		}else {
-			ShopDTO bean = form.getDTO();			
+			ShopDTO bean = form.getDTO();
 			bean.setImage(image.getBytes());
 			if(form.getId()>0) {
-				service.update(bean);
+				ShopDTO new_bean = service.findByShopId(bean.getShopId());
+				if(new_bean != null) {			
+					service.delete(new_bean.getId());
+				}
+				service.Add(bean);
 				model.addAttribute("success", "Shop Updated successfully");
-			}else {
-			service.Add(bean);
-			model.addAttribute("success", "Shop Added successfully");
+			}
+			else {
+				ShopDTO new_bean = service.findByShopId(bean.getShopId());
+				if(new_bean != null) {			
+					service.delete(new_bean.getId());
+				}
+				service.Add(bean);
+				model.addAttribute("success", "Shop Added successfully");
 			}
 			
 			return "shop";
