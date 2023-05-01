@@ -1,6 +1,8 @@
 package com.mallmgt.ctl;
 
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -66,9 +68,9 @@ public class MovieBookingCtl {
 		String showId = req.getParameter("showId");
 		System.out.println("showId at Movie booking form: "+showId);
 		
-		List<String> list = dto.getSeats();
+		//List<String> list = dto.getSeats();
 		
-		for (String id : list) {
+		/*for (String id : list) {
 			System.out.println("Booked Seats Id: "+id);
 			movieService.updateSeatStatus(DataUtility.getLong(id), DataUtility.getLong(showId));
 			
@@ -77,9 +79,27 @@ public class MovieBookingCtl {
 		    long seatNum = seatDto.getSeat();
 		    seatNumbers = seatNumbers +"," +DataUtility.getStringData(seatNum);
 		//	movieService.updateSeatStatus(16, 4);
+		}*/
+		List<String> list = dto.getSeats();
+
+		if (!list.isEmpty()) {
+		    // Initialize seatNumbers with the first seat number
+		    MovieSeatDTO firstSeat = movieSeatDAO.findById(DataUtility.getLong(list.get(0)));
+		    long firstSeatNum = firstSeat.getSeat();
+		    seatNumbers = DataUtility.getStringData(firstSeatNum);
 		}
+
+		for (int i = 1; i < list.size(); i++) {
+		    String id = list.get(i);
+		    System.out.println("Booked Seats Id: " + id);
+		    movieService.updateSeatStatus(DataUtility.getLong(id), DataUtility.getLong(showId));
+		    MovieSeatDTO seatDto = movieSeatDAO.findById(DataUtility.getLong(id));
+		    long seatNum = seatDto.getSeat();
+		    seatNumbers = seatNumbers + "," + DataUtility.getStringData(seatNum);
+		}
+
 		System.out.println("Booked Seat Numbers: "+seatNumbers);
-      System.out.println("Booking form" +dto);
+		System.out.println("Booking form" +dto);
 		long totalPrice =dto.getPrice()*list.size();
 		System.out.println("list.size(): "+list.size());
 		System.out.println("dto.getPrice(): "+dto.getPrice());
@@ -118,13 +138,24 @@ public class MovieBookingCtl {
 		}else {
 			list = service.findMovieByEmail(email);
 		}
+		for(int i=0; i< list.size(); i++) {
+			   SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		       String formattedDate = formatter.format(list.get(i).getDate());
+		       list.get(i).setDateString(formattedDate);
+		       //System.out.println("");
+		}
 		model.addAttribute("list", list);
 		return "moviebookingviewlist";
 	}
 	
 	@GetMapping("/viewBookedTicket")
-	public String viewBookedTicket(@RequestParam("id") long id,Model model) {
+	public String viewBookedTicket(@RequestParam("id") long id,Model model) throws Exception {
 	   MovieBookingDTO dto =	service.findMovieBookingById(id);
+	   List<String> seats = dto.getSeats();
+	   
+	   SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+       String formattedDate = formatter.format(dto.getDate());
+       dto.setDateString(formattedDate);
 	   model.addAttribute("ticket", dto);
 		return "viewbookedticket";
 	}

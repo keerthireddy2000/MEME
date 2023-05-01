@@ -62,7 +62,9 @@ public class GameCtl {
 		List<GameRechargeDTO> list = service.CardBalance(user.getId());
 		
 		for (GameRechargeDTO gameRechargeDTO : list) {
+			System.out.println("amount" + amount);
 			amount = amount + gameRechargeDTO.getAmount();
+			System.out.println("amount2" + amount);
 		}
 		
 		if(list!=null) {
@@ -73,6 +75,8 @@ public class GameCtl {
 		}
 		
 		return "gamerecharge";
+		//model.addAttribute("totalPrice",form.getAmount());
+		//return "redirect:/payment";
 	}
 	
 	@PostMapping("/addGameRecharge")
@@ -82,7 +86,9 @@ public class GameCtl {
 		dto.setUserId(user.getId());
 		service.RechargeCard(dto);
 		model.addAttribute("success", "Recharge Successful!");
-		return "gamerecharge";
+		model.addAttribute("totalPrice",form.getAmount());
+		return "redirect:/payment";
+		
 	}
 	
 	@PostMapping("/addGame")
@@ -97,10 +103,15 @@ public class GameCtl {
 			GameDTO bean = form.getDTO();
 			bean.setImage(image.getBytes());
 			if(form.getId()>0) {
-
+				String link = bean.getVideoLink();
+				String links[] = link.split("youtu.be/");
+				bean.setVideoLink(links[1]);
 				service.update(bean);
 				model.addAttribute("success", "Game Updated successfully");
 			}else {
+				String link = bean.getVideoLink();
+				String links[] = link.split("youtu.be/");
+				bean.setVideoLink(links[1]);
 				service.Add(bean);
 				model.addAttribute("success", "Game Added successfully");
 			}
@@ -118,6 +129,11 @@ public class GameCtl {
 	@GetMapping("/gameList")
 	public String list(@ModelAttribute("form")GameForm form, Model model){
 	List<GameDTO> list = service.list();
+	for(int i=0; i< list.size(); i++) {
+		String link = list.get(i).getVideoLink();
+		link = "https://youtu.be/" + link;
+		list.get(i).setVideoLink(link);
+	}
 	model.addAttribute("list", list);
 	return "gamelist";
 		
@@ -126,6 +142,9 @@ public class GameCtl {
 	@GetMapping("/gameEdit")	
 	public String update(@ModelAttribute("form")GameForm form, Model model, @RequestParam("id") long id ){
 		GameDTO bean = service.findGameById(id);
+		String link = bean.getVideoLink();
+		link = "https://youtu.be/" + link;
+		bean.setVideoLink(link);
 		form.populate(bean);
 		System.out.println("Edit Bean:" +bean.toString());
 		model.addAttribute("bean",bean);	
