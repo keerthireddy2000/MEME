@@ -15,6 +15,7 @@ INDIVIDUAL CONTRIBUTIONS
 •	Developed the parking feature from the administrator perspective, where it lets the administrator manage the booked parking spaces.
 •	Implemented food stalls feature from the admin perspective, where it lets the administrator add new food stalls to the application and food store manager to manage the food stalls and their menu details.
 •	Also, worked on the login feature of the application.
+•	Developed food stall manager feature, administrator of the application will be able to add/update/delete manager to the food stall. Food stall manager will be able to add/update/delete/view food menu of the stall assigned to them. Food stall manager is also reponsible for processing food order of their assigned food stall.
 
 
 # Kavya Sree Katakam

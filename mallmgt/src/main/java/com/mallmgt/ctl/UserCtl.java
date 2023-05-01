@@ -38,26 +38,24 @@ public class UserCtl {
 
 		System.out.println("form: "+form);
 		try {
-			if (bindingResult.hasErrors()) {
-				System.out.println("bindingResult : "+bindingResult);
-				return "registration";
+		if (bindingResult.hasErrors()) {
+			System.out.println("bindingResult : "+bindingResult);
+			return "registration";
+		}else {
+			UserDTO bean = form.getDTO();
+			if(form.getId()>0) {
+				bean.setUserRole("User");
+				service.update(bean);
+				model.addAttribute("success", "User Updated successfully");
+			}else {
+				bean.setUserRole("User");
+				service.Add(bean);
+				model.addAttribute("success", "Registration successfully");
 			}
-			else {
-				UserDTO bean = form.getDTO();
-				if(form.getId()>0) {
-					bean.setUserRole("User");
-					service.update(bean);
-					model.addAttribute("success", "User Updated successfully");
-				}else {
-					bean.setUserRole("User");
-					service.Add(bean);
-					model.addAttribute("success", "Registration successfully");
-				}
-				
-				return "registration";
-			}
-		}
-		catch (RecordNotFoundException e) {
+			
+			return "registration";
+		}}catch (RecordNotFoundException e) {
+			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 			e.printStackTrace();
 			return "registration";
@@ -66,9 +64,9 @@ public class UserCtl {
 	
 	@GetMapping("/userList")
 	public String list(@ModelAttribute("form")UserForm form, Model model){
-		List<UserDTO> list = service.list();
-		model.addAttribute("list", list);
-		return "userlist";
+	List<UserDTO> list = service.list();
+	model.addAttribute("list", list);
+	return "userlist";
 		
 	}
 	
@@ -83,6 +81,7 @@ public class UserCtl {
 	@GetMapping("/userDelete")	
 	public String delete(@ModelAttribute("form")UserForm form, Model model, @RequestParam("id") long id ) throws Exception{
 		service.delete(id);	
+		
 		List<UserDTO> list =	service.list();
 		model.addAttribute("list", list);
 		model.addAttribute("success", "User Deleted successfully");
@@ -92,6 +91,7 @@ public class UserCtl {
 	@GetMapping("/MyProfile")	
 	public String myprofile(@ModelAttribute("form")UserForm form, Model model, @RequestParam("id") long id ) throws Exception{
 		service.delete(id);	
+		
 		List<UserDTO> list =	service.list();
 		model.addAttribute("list", list);
 		model.addAttribute("success", "User Deleted successfully");
