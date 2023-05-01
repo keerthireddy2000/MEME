@@ -101,7 +101,7 @@
     
      <div class="carousel-item" style="height: 400px;">
      <a href="${pageContext.request.contextPath}/jobList">
-              <img class="d-block w-100" src="https://sgiarchitects.com/wp-content/uploads/2020/09/We-are-hiring.jpg"
+              <img class="d-block w-100" src="https://villageofgreenwich.com/wp-content/uploads/2018/11/AceAutoNowHiring.jpg"
               class="w-100 h-50" style="height: 400px;"/>
               <div class="carousel-caption d-none d-md-block">
 			    <h3>Job Opportunities</h3>

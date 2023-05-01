@@ -81,6 +81,19 @@
   
               </div>
               
+               <div class="row">
+                <div class="col-md-6 mb-4">
+                <s:bind path="videoLink">
+                  <div class="form-outline"> 
+                  <label class="form-label" for="videoLink">Video Link</label>                  
+                  <sf:input type="text" class="form-control form-control-lg" id="videoLink" path="videoLink" placeholder="Enter Video Link"/>     
+                  <font color="red" style="font-size: 15px"><sf:errors path="${status.expression}" /></font>            
+                  </div>
+                  </s:bind>   			 
+                </div>
+  
+  
+              </div>
               
                 <c:choose>
   				<c:when test="${form.id>0}">

@@ -10,19 +10,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Stall Managers List</title>
+<title>User List</title>
 </head>
 <body >
 
 <div class="container content" >
 <div style="display:flex; flex-direction: row;">
 <div>
-<h2 style="padding-top: 30px;padding-bottom: 20px;">Stall Managers List</h2>
+<h2 style="padding-top: 30px;padding-bottom: 20px;">Users List</h2>
 </div>
-<div style="margin-top: 40px;margin-left: -168px;">
+<div style="margin-top: 40px;">
 <c:choose>
      <c:when test="${sessionScope.user.userRole == 'Admin' || sessionScope.user.userRole == 'FoodAdmin'}">
-     <a href="${pageContext.request.contextPath}/addfoodmanager?stallId=${stallId}" style="background-color:black; color: white; border-radius: 5px; padding: 8px; margin-left: 1101px; text-decoration:none;">Add Manager</a>
+     <a href="${pageContext.request.contextPath}/addfoodmanager?stallId=${stallId}" style="background-color:black; color: white; border-radius: 5px; padding: 8px; margin-left: 1101px; text-decoration:none;">Add User</a>
      </c:when>
  </c:choose>   
 </div>

@@ -81,8 +81,18 @@ $(function() {
 <body >
 
 <div class="container content" >
-
-<h2 style="padding: 30px">Parking List</h2>
+<div style="display:flex; flex-direction: row;">
+<div>
+<h2 style="padding-top: 30px; padding-bottom: 30px;">Parking List</h2>
+</div>
+<div style="margin-top: 40px;">
+<c:choose>
+     <c:when test="${sessionScope.user.userRole == 'Admin'}">
+     <a href="${pageContext.request.contextPath}/parking" style="background-color:black; color:white; border-radius: 5px; padding: 8px; margin-left: 1049px; text-decoration:none; ">Add Parking</a>
+     </c:when>
+ </c:choose> 
+</div> 
+</div>   
 <%@include file="businessMessage.jsp" %>
 <table class="table bg-light text-dark" id="myTable">
   <thead>
@@ -93,10 +103,13 @@ $(function() {
       <c:choose>
       <c:when test="${sessionScope.user.userRole=='Admin'}">   
       <th scope="col">Action</th>
-      </c:when>
-      </c:choose>
       <th scope="col">View Parking Slot</th>
+      </c:when>
+      <c:otherwise>
       <th scope="col">Book</th>
+      </c:otherwise>
+      </c:choose>
+      
     </tr>
   </thead>
   <tbody>
@@ -112,15 +125,17 @@ $(function() {
       <a href="${pageContext.request.contextPath}/parkingEdit?id=${li.id}" ><i class="fas fa-pen"></i></a>
       <a href="${pageContext.request.contextPath}/parkingDelete?id=${li.id}"><i class="fas fa-trash"></i></a> 
       </td>
-      </c:when>
-      </c:choose>     
-      
        <td>      
       <a href="${pageContext.request.contextPath}/viewparkingSlot?id=${li.id}">View</a>    
       </td>
-      <td>      
-      <a href="${pageContext.request.contextPath}/booking?id=${li.id}">Book</a>    
+      </c:when>
+      <c:otherwise>
+       <td>      
+      <a href="${pageContext.request.contextPath}/viewparkingSlot?id=${li.id}">Book</a>    
       </td>
+      </c:otherwise>
+      </c:choose>     
+     
     </tr>
    </c:forEach>
   </tbody>

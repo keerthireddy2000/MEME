@@ -2,6 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="crt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<style><%@include file="/WEB-INF/css/deals.css"%></style>
 
 <section class="vh-100 gradient-custom ">
   <div class="container py-5 h-100">
@@ -51,13 +52,26 @@
                 </div>
                 
                    <div class="row">
-                <div class="col-md-6 mb-4">
+                      <div class="col-md-6 mb-4">
                   <div class="form-outline"> 
                   <label class="form-label" for="image">Deal Image</label>                  
                   <input type="file"  class="form-control form-control-lg" name="image" required="required"/>     
                   <font color="red" style="font-size: 15px"></font>                  
                   </div>			 
                 </div>
+                  <div class="col-md-6 mb-4">
+				  <s:bind path="dealType">
+				    <div class="form-check form-switch">
+				      <sf:checkbox id="dealType" path="dealType" name="dealType" value="true" class="form-check-input" style="margin-top: 41px;margin-left: -2px;" />
+				      <label class="form-check-label" for="dealType">Mega Deal</label>
+				    </div>
+				    <font color="red" style="font-size: 15px"><sf:errors path="${status.expression}" /></font>
+				  </s:bind>
+				</div>
+                  
+				 
+                </div>
+             
   
   
               </div>
@@ -73,13 +87,13 @@
 
                 <c:choose>
   				<c:when test="${form.id>0}">
-   				  <div class="mt-4 pt-2">
+   				  <div class="mt-4 pt-2" style="margin-left: 282px;margin-bottom: 30px;">
                 <input class="btn btn-primary btn-lg" style="border-color: white; color: black; background-color: white; font-weight: bold;" type="submit" value="Update" />
               </div>   
  			</c:when>
 
   			<c:otherwise>
-             <div class="mt-4 pt-2">
+             <div class="mt-4 pt-2" style="margin-left: 282px;margin-bottom: 30px;">
                 <input class="btn btn-primary btn-lg" style="border-color: white; color: black; background-color: white; font-weight: bold;" type="submit" value="Add" />
               </div>
   			</c:otherwise>

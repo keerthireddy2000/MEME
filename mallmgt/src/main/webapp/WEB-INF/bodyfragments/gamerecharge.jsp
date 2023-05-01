@@ -32,15 +32,15 @@
                     <c:if test="${balance < 0}">
                     <h5>Current Balance: 1015</h5>
                     </c:if> -->
-                    
-                    <c:choose>
+                    <h5>Current Balance: ${balance}</h5>
+                   <!--  <c:choose>
 					    <c:when test="${balance >=0}">
 					       <h5>Current Balance: 1000</h5>
 					    </c:when>    
 					    <c:otherwise>
 					        <h5>Current Balance: 1100</h5>
 					    </c:otherwise>
-					</c:choose>
+					</c:choose>  -->
             
             <sf:form method="post" action="${pageContext.request.contextPath}/addGameRecharge" modelAttribute="form">
             <sf:input type="hidden" id="id" class="form-control form-control-lg" path="id" name="id" value="${form.id}"/>

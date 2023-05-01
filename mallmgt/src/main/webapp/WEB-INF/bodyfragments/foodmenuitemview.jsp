@@ -20,10 +20,11 @@
         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Menu Item</h3> 
            
 
-            <sf:form method="post" action="${pageContext.request.contextPath}/addFoodMenu" modelAttribute="form">
+            <sf:form method="post" action="${pageContext.request.contextPath}/addFoodMenu" modelAttribute="form" enctype="multipart/form-data">
             <sf:input type="hidden" id="id" class="form-control form-control-lg" path="id" name="id" value="${form.id}"/>
             <sf:input type="hidden" id="stallId" class="form-control form-control-lg" path="stallId" name="stallId" value="${dto.stallId}"/>
             <sf:input type="hidden" id="stallName" class="form-control form-control-lg" path="stallName" name="stallName" value="${dto.stallName}"/>
+            <sf:input type="hidden" id="cuisine" class="form-control form-control-lg" path="cuisine" name="cuisine" value="${dto.cuisine}"/>
             
               <div class="row">
                 <div class="col-md-6 mb-4">
@@ -59,9 +60,14 @@
                     <font color="red" style="font-size: 15px"><sf:errors path="${status.expression}" /></font>
                   </s:bind>
                   </div>
-               
-                </div>
                 
+                 <div class="col-md-8 mb-6" style="padding: 0px;max-width: 100%;">
+                  <div class="form-outline">
+                  <label class="form-label" for="image">Image</label>                  
+                  <input type="file"  class="form-control form-control-lg" name="image" required="required"/>     
+                  <font color="red" style="font-size: 15px"></font>              
+                  </div>			 
+                </div>
               </div>
 
                 <c:choose>

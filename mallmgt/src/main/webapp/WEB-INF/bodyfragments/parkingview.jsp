@@ -57,7 +57,7 @@
                  <s:bind path="numberOfSlot">
                   <div class="form-outline">
                    <label class="form-label" for="numberOfSlot">Number Of Slots</label>
-                    <sf:input type="tel" id="numberOfSlot" class="form-control form-control-lg" path="numberOfSlot" />
+                    <sf:input type="tel" id="numberOfSlot" class="form-control form-control-lg" path="numberOfSlot" value="24" readonly="true" />
                     <font color="red" style="font-size: 15px"><sf:errors path="${status.expression}" /></font>
                   </div>
 					</s:bind>

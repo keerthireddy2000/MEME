@@ -29,7 +29,7 @@
       <th scope="col">Order Status</th>
      <th scope="col">Delivery Status</th>
       
-    <c:if test="${sessionScope.user.userRole=='Admin'}">
+    <c:if test="${sessionScope.user.userRole=='Admin' || sessionScope.user.userRole=='FoodAdmin'}">
      <th scope="col">Mark AS</th>
      <th scope="col">Action</th>
      </c:if>
@@ -47,7 +47,7 @@
        <td>${li.orderby}</td>
        <td>${li.status}</td>
         <td>${li.deliveryStatus}</td>
-      <c:if test="${sessionScope.user.userRole=='Admin'}">
+      <c:if test="${sessionScope.user.userRole=='Admin' || sessionScope.user.userRole=='FoodAdmin'}">
       <td><a href="${pageContext.request.contextPath}/updateDeliveryStatus?id=${li.id}">Ready To Pick</a></td>
       <td>
        <a href="${pageContext.request.contextPath}/acceptFoodBooking?id=${li.id}" class="btn btn-primary btn-sm">Accept</a>

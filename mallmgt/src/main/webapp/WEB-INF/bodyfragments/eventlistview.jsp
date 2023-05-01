@@ -8,7 +8,19 @@
 <style><%@include file="/WEB-INF/css/moviegrid.css"%></style>
 
  <section style="background-color: white;">
-
+<div style="display:flex; flex-direction: row;margin-left: 183px;">
+<div>
+<h2 style="padding-top: 30px;padding-bottom: 20px;">Events List</h2>
+</div>
+<div style="margin-top: 35px;">
+<c:choose>
+     <c:when test="${sessionScope.user.userRole == 'Admin'}">
+     <a href="${pageContext.request.contextPath}/event" style="background-color:black; color: white; border-radius: 5px; padding: 8px; margin-left: 915px; text-decoration:none;">Add Event</a>
+     </c:when>
+ </c:choose>   
+</div>
+</div>
+<%@include file="businessMessage.jsp" %>
   <div class="container py-3 content">
   <div class="row">
   

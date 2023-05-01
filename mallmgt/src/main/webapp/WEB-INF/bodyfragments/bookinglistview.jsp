@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="crt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
-<style><%@include file="/WEB-INF/css/moviebookingviewlist.css"%></style>
+<style><%@include file="/WEB-INF/css/bookinglistview.css"%></style>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +15,7 @@
 
 <div class="container content" >
 
-<h2 style="padding: 30px">Movie Booking History</h2>
+<h2 style="padding-top: 30px;margin-bottom: 20px;">Parking Booking List</h2>
 <%@include file="businessMessage.jsp" %>
 <table class="table bg-light text-dark">
   <thead>
@@ -23,11 +23,15 @@
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>     
-      <th scope="col">Total Price</th>
-      <th scope="col">Movie Title</th>
-     <th scope="col">Date</th>
-     <th scope="col">Time</th>
-     <th scope="col">Ticket</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Parking Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Slot</th>
+       <th scope="col">From Booking Date</th>     
+      <th scope="col">From Time</th>
+      <th scope="col">To Booking Date</th>
+      <th scope="col">To Time</th>
+       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -36,11 +40,15 @@
       <td>${li.firstName}</td>
       <td>${li.lastName}</td>
       <td>${li.email}</td>
-      <td>${li.price}</td>
-      <td>${li.title}</td>
-      <td>${li.dateString}</td>
-      <td>${li.showTime}</td>
-      <td><a href="${pageContext.request.contextPath}/viewBookedTicket?id=${li.id}" >View Ticket</a></td>
+      <td>${li.phoneNumber}</td>
+      <td>${li.parkingName}</td>
+      <td>${li.address}</td>
+      <td>${li.slot}</td>
+      <td>${li.fromBookingDate}</td>
+      <td>${li.fromTime}</td>
+      <td>${li.toBookingDate}</td>
+      <td>${li.toTime}</td>
+      <td><a aria-current="page" href="${pageContext.request.contextPath}/cancelBooking?slotid=${li.slotId}&id=${li.id}">${li.status}</a></td>
     </tr>
    </c:forEach>
   </tbody>

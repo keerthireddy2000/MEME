@@ -15,10 +15,20 @@
 <body >
 
 <div class="container content" >
-
-<h2 style="padding-top: 30px">User List</h2>
+<div style="display:flex; flex-direction: row;">
+<div>
+<h2 style="padding-top: 30px;padding-bottom: 20px;">Users List</h2>
+</div>
+<div style="margin-top: 40px;">
+<c:choose>
+     <c:when test="${sessionScope.user.userRole == 'Admin'}">
+     <a href="${pageContext.request.contextPath}/registration" style="background-color:black; color: white; border-radius: 5px; padding: 8px; margin-left: 1101px; text-decoration:none;">Add User</a>
+     </c:when>
+ </c:choose>   
+</div>
+</div>
 <%@include file="businessMessage.jsp" %>
-<table class="table bg-light text-dark" style="margin-top: 20px;">
+<table class="table bg-light text-dark" style="margin-top: 10px;">
   <thead>
     <tr>
       <th scope="col">First Name</th>
