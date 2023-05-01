@@ -33,3 +33,9 @@ INDIVIDUAL CONTRIBUTIONS
 •	Developed view feature for the user to view flash deals and mega deals.
 # Charan Kasala
 # Nikhitha Bijjala
+•	Designed the home page of the application with the functionality to navigating to the respective service when clicked on the any of the service 
+•   Implemented the manage users for the admin end, where admin will be able to add a new user or update or delete an existing user.
+•   Developed te Game feature from the customer end , where customer will be able to view all the games available and also get the detailed information along with the video of that particular game.
+•   Implemented the Recharge card feature for the customer end, where customer an update the card balance.
+•   Developed the Job feature from the admin end, where the admin will be able to view all the jobs, update or delete the existing job and can also add new job to the job list.
+•   Implemented the Review applications for the admin end, admin has an option to view all the applied applications,  can accept or reject a appliction.
