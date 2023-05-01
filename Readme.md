@@ -20,5 +20,10 @@ INDIVIDUAL CONTRIBUTIONS
 # Kavya Sree Katakam
 
 # Manojna Borra
+•	Implemented the admin end for processing food orders placed by the customers. This feature will let the admin accept/reject the orders and notify the customer once the order is ready to be picked.
+•	Developed the admin end for the movie feature. The admin will be able to add a new movie and relevant information, Update and Delete the same. 
+•	Worked on the Job Opportunities feature for the customer end. The applicant will be able to apply for a job opening by filling out a form and uploading a resume which will be submitted to the admin for review.
+•	Developed the View and filter movies feature which let’s the user view all the streaming movies and filter based on preference.
+•	Developed view feature for the user to view flash deals and mega deals.
 # Charan Kasala
 # Nikhitha Bijjala
