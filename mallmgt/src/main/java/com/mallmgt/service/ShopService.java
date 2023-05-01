@@ -40,6 +40,14 @@ public class ShopService {
 		return dao.findById(id);
 	}
 	
+	public ShopDTO findByShopId(String shopId) {
+		return dao.findByShopId(shopId);
+	}
+	
+	public void deleteByShopId(String shopId) {
+		dao.deleteByShopId(shopId);
+	}
+	
 	public List<ShopDTO> findByShopByUserId(long userId) {
 		return dao.findByUserId(userId);
 	}

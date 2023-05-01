@@ -30,6 +30,9 @@ public class ShopForm extends BaseDTO {
 	   @NotEmpty(message = "Closing Time is required")
 	   private String closingTime;
 	   
+	   @NotEmpty(message = "Shop Id is required")
+	   private String shopId;
+	   
 	   
 	   
 	   public long getUserId() {
@@ -83,6 +86,14 @@ public class ShopForm extends BaseDTO {
 	public String getClosingTime() {
 		return closingTime;
 	}
+	
+	public String getShopId() {
+		return shopId;
+	}
+	
+	public void setShopId(String shopId) {
+		this.shopId = shopId;
+	}
 
 	public void setClosingTime(String closingTime) {
 		this.closingTime = closingTime;
@@ -99,7 +110,7 @@ public class ShopForm extends BaseDTO {
 			bean.setEmail(email);
 			bean.setOpeningTime(openingTime);
 			bean.setClosingTime(closingTime);
-
+			bean.setShopId(shopId);
 			return bean;
 		}
 
@@ -111,6 +122,6 @@ public class ShopForm extends BaseDTO {
 	        email = bean.getEmail();
 	        openingTime = bean.getOpeningTime();
 	        closingTime = bean.getClosingTime();
-
+	        shopId = bean.getShopId();
 		}
 }

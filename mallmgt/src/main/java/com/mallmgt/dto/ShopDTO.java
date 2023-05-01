@@ -25,6 +25,9 @@ public class ShopDTO extends BaseDTO {
 	   @Column(name = "contactNumber", length = 755)
 	   private String contactNumber;
 	   
+	   @Column(name = "shopId", length = 755)
+	   private String shopId;
+	   
 	   @Column(name = "email", length = 755)
 	   private String email;
 	   
