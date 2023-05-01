@@ -22,6 +22,8 @@ public class GameDTO extends BaseDTO {
 	@Column(name = "instrcutions", length = 755)
 	private String instructions;
 	
+	@Column(name = "videoLink", length = 755)
+	private String videoLink;
 
 	 @Column(name = "image", columnDefinition = "LONGBLOB")
 	    private byte[] image;
@@ -29,7 +31,7 @@ public class GameDTO extends BaseDTO {
 	@Override
 	public String toString() {
 		return "GameDTO [gameName=" + gameName + ", pricePerHour=" + pricePerHour + ", instructions=" + instructions
-				+ "]";
+				+ ", videoLink = " + videoLink + "]";
 	}
 	
 	

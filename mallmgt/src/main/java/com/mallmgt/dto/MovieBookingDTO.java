@@ -41,6 +41,8 @@ public class MovieBookingDTO extends BaseDTO {
 	@Column(name = "date")
 	private Date date;
 	
+	private String dateString;
+	
 	@Column(name = "showTime", length = 755)
 	private String showTime;
 	
