@@ -35,13 +35,23 @@ public class FoodCartService {
 		return list;
 	}
 	
+	public List<FoodCartDTO> findCartInfoByStallId(long id){
+		List<FoodCartDTO> list =   dao.findByStallId(id);		
+		return list;
+	}
+	
 	public FoodCartDTO update(FoodCartDTO dto) {
 		return dao.saveAndFlush(dto);
+	}
+	
+	public void delete(FoodCartDTO dto) {
+	    dao.delete(dto);
 	}
 	
 	public FoodCartDTO findById(long id) {
 		return dao.findById(id);
 	}
 	
+
 	
 }

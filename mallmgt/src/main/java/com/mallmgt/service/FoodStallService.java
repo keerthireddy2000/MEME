@@ -14,6 +14,7 @@ import com.mallmgt.dao.FoodStallDAO;
 import com.mallmgt.dao.SlotDAO;
 import com.mallmgt.dto.EventDTO;
 import com.mallmgt.dto.FoodStallDTO;
+import com.mallmgt.dto.MovieDTO;
 import com.mallmgt.exception.RecordNotFoundException;
 
 @Service
@@ -63,6 +64,11 @@ public class FoodStallService {
 			throw new Exception("Not a valid id");
 		}
 		
+	}
+	
+	public List<FoodStallDTO> searchByCuisine(String filter){
+		List<FoodStallDTO> list = dao.findByCuisine(filter);
+		return list;
 	}
 	
 	public Blob getImageById(long id) throws SerialException, SQLException {

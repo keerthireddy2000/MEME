@@ -21,9 +21,11 @@ public class ParkingService {
 	public ParkingDTO Add(ParkingDTO dto) {
 	ParkingDTO parking = null;
 	parking = dao.findByParkingName(dto.getParkingName());
+	System.out.println("user by email........: "+parking);
 	
 	if(parking != null)
-		throw new RecordNotFoundException("Parking Name already exists !");
+		throw new RecordNotFoundException("Parking Name is already exists..");
+	    System.out.println("dto Before Save: "+dto);
 	    parking = dao.save(dto);
        return  parking;
 	}

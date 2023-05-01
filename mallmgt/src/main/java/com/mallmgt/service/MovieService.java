@@ -111,6 +111,11 @@ public class MovieService {
 		return list;
 	}
 	
+	public List<MovieDTO> searchByGenreOrLanguageOrFormat(String filter){
+		List<MovieDTO> list = dao.findByGenreOrLanguageOrFormat(filter);
+		return list;
+	}
+	
 	public static void main(String[] args) {		
 		try {
 

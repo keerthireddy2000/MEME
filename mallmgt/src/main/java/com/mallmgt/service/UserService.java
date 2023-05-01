@@ -21,9 +21,12 @@ public class UserService {
 	public UserDTO Add(UserDTO dto) {
 	UserDTO user = null;
 	user = dao.findByEmail(dto.getEmail());
+	System.out.println("user by email........: "+user);
 	if(user != null)
-		throw new RecordNotFoundException("Email already exists !");
+		throw new RecordNotFoundException("Email is already exists..");
+	    System.out.println("dto Before Save: "+dto);
 	    user = dao.save(dto);
+	   
        return  user;
 	}
 	
@@ -38,6 +41,10 @@ public class UserService {
 	
 	public UserDTO findUserByEmail(String email) {
 		return dao.findByEmail(email);
+	}
+	
+	public List<UserDTO> findUserByStallId(String stallId) {
+		return dao.findByFoodStallId(stallId);
 	}
 	
 	public List<UserDTO> list(){
