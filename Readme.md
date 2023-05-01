@@ -8,6 +8,11 @@ CHANGES MADE TO THE PROJECT
 INDIVIDUAL CONTRIBUTIONS
 
 # Vamsi Krishna Changala
+•	Developed the View Job openings features from customer end that lets the customer get to know about the job opportunities present in the mall and their details.
+•	Developed the View Job Applications features from customer end that lets the customer to know the status of applied job.
+•	Developed the book parking space feature from customer perspective that lets the customer book a parking space in the selected parking lot at selected time slot.
+•	Implemented parking feature from the admin perspective, where it lets the admin add new parking space to the application, manage parking lot and delete parking space.
+•	Implemented gaming feature from the admin perspective, where it lets the admin add new game to the application, manage games and delete game.
 
 # Keerthi Reddy Tummalapelly
 •	Developed the book movie ticket feature from customer perspective that lets the customer book a ticket for the selected movie at selected time slot.
