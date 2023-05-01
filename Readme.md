@@ -24,6 +24,20 @@ INDIVIDUAL CONTRIBUTIONS
 
 
 # Kavya Sree Katakam
+•   Developed the Parking Booking History feature of the application, where user can view their booked parking slots.
+•   Implemented events feature from admin end, where administrator can view/add/update/delete the events happening in the mall.
+•   Developed the events feature from user end, where user can view all the happening events and their details in the mall.
+•   Implemented order food feature, where user can 
+    Add the food menu item to the cart, 
+    View the cart - Where user can increase/decrease the quantity which relatively changes the price and,
+    Order the food.
+•   Implemented Food Booking History feature, whre user can view 
+    The ordered food item list,
+    The order status of the food - Accepted or Rejected
+    The delivery status of the food - Ready to pick up or not.
+•   Implemented events feature from admin end, where administrator can view/add/update/delete the flash deals by choosing it as mega 
+    deal or normal deal.
+•   Worked on the registration feature of the application.
 
 # Manojna Borra
 •	Implemented the admin end for processing food orders placed by the customers. This feature will let the admin accept/reject the orders and notify the customer once the order is ready to be picked.
@@ -31,7 +45,9 @@ INDIVIDUAL CONTRIBUTIONS
 •	Worked on the Job Opportunities feature for the customer end. The applicant will be able to apply for a job opening by filling out a form and uploading a resume which will be submitted to the admin for review.
 •	Developed the View and filter movies feature which let’s the user view all the streaming movies and filter based on preference.
 •	Developed view feature for the user to view flash deals and mega deals.
+
 # Charan Kasala
+
 # Nikhitha Bijjala
 •	Designed the home page of the application with the functionality to navigating to the respective service when clicked on the any of the service 
 •   Implemented the manage users for the admin end, where admin will be able to add a new user or update or delete an existing user.
