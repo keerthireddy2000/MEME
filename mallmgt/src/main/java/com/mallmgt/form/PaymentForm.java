@@ -20,7 +20,6 @@ public class PaymentForm extends BaseDTO{
 	@NotEmpty(message = "Expiry Date is required")
 	private String expireDate;
 	
-	@NotEmpty(message = "Total Price is required")
 	private long totalPrice;
 	
 

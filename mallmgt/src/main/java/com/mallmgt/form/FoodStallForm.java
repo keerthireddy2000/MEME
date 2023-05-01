@@ -14,21 +14,31 @@ import lombok.Setter;
 @Setter
 public class FoodStallForm extends BaseDTO {
 
-	@NotEmpty(message = "Stall name is required")
+	@NotEmpty(message = "Stall Name is required")
 	private String stallName;
-
+	
+	@NotEmpty(message = "Stall Location is required")
+	private String stallLocation;
+	
+	@NotEmpty(message = "Cuisine is required")
+	private String cuisine;
+	
+	private String operation;
+	
 	public FoodStallDTO getDTO() {
 		FoodStallDTO bean=new FoodStallDTO();
 		bean.setId(id);
 		bean.setStallName(stallName);
-
+		bean.setCuisine(cuisine);
+		bean.setStallLocation(stallLocation);
 		return bean;
 	}
 
 	public void populate(FoodStallDTO bean) {
 		id = bean.getId();
 		stallName = bean.getStallName();
-
+		stallLocation = bean.getStallLocation();
+		cuisine = bean.getCuisine();
 	}
 
 }

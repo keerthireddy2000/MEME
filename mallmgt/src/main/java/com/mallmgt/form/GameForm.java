@@ -24,13 +24,17 @@ public class GameForm extends BaseDTO {
 	@NotEmpty(message = "Instructions are required")
 	private String instructions;
 	
+	@NotEmpty(message = "Video Link is required")
+	private String videoLink;
+	
 public GameDTO getDTO() {		
 	GameDTO bean=new GameDTO();		
 		bean.setId(id);
 	    bean.setGameName(gameName);
 	    bean.setPricePerHour(DataUtility.getLong(pricePerHour));
 	    bean.setInstructions(instructions);
-		return bean;
+	    bean.setVideoLink(videoLink);
+	    return bean;
 	}
 
 	public void populate(GameDTO bean) {
@@ -38,6 +42,7 @@ public GameDTO getDTO() {
 		gameName=bean.getGameName();
 		pricePerHour = DataUtility.getStringData(bean.getPricePerHour());
 		instructions = bean.getInstructions();
+		videoLink = bean.getVideoLink();
 	}
 
 

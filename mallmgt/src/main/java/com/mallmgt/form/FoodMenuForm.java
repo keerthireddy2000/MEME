@@ -19,6 +19,9 @@ public class FoodMenuForm extends BaseDTO {
 	@NotEmpty(message = "Stall Name is required")
 	private String stallName;
 	
+	@NotEmpty(message = "Cuisine is required")
+	private String cuisine;
+	
 	@NotEmpty(message = "Food Name is required")
 	private String foodName;
 	
@@ -28,15 +31,16 @@ public class FoodMenuForm extends BaseDTO {
 	@NotEmpty(message = "Delivery Time is required")
 	private String deliveryTime;
 	
+	
 	public FoodMenuDTO getDTO() {
 		FoodMenuDTO bean=new FoodMenuDTO();
 		bean.setId(id);
 		bean.setStallId(DataUtility.getLong(stallId));
 		bean.setStallName(stallName);
+		bean.setCuisine(cuisine);
 		bean.setFoodName(foodName);
 		bean.setFoodPrice(DataUtility.getLong(foodPrice));
 		bean.setDeliveryTime(deliveryTime);
-
 		return bean;
 	}
 
@@ -45,6 +49,7 @@ public class FoodMenuForm extends BaseDTO {
 		stallId = DataUtility.getStringData(bean.getStallId());
 		stallName = bean.getStallName();
 		foodName = bean.getFoodName();
+		cuisine = bean.getCuisine();
 		foodPrice = DataUtility.getStringData(bean.getFoodPrice());
 		deliveryTime= bean.getDeliveryTime();
 
@@ -53,7 +58,7 @@ public class FoodMenuForm extends BaseDTO {
 	@Override
 	public String toString() {
 		return "FoodMenuForm [stallId=" + stallId + ", stallName=" + stallName + ", foodName=" + foodName
-				+ ", foodPrice=" + foodPrice + ", deliveryTime=" + deliveryTime + "]";
+				+ ", foodPrice=" + foodPrice + ", deliveryTime=" + deliveryTime + ", cuisine=" + cuisine + "]";
 	}
 	
 	

@@ -19,12 +19,14 @@ public class DealForm extends BaseDTO{
 	@NotEmpty(message = "Description is required")
 	private String description;
 		
+	private String dealType;
+	
 	 public DealDTO getDTO() {			
 		 DealDTO bean=new DealDTO();			
 			bean.setId(id);
 	        bean.setDealName(dealName);
 	        bean.setDescription(description);
-
+	        bean.setDealType(dealType);
 			return bean;
 		}
 
@@ -32,7 +34,7 @@ public class DealForm extends BaseDTO{
 			id = bean.getId();
 	       dealName = bean.getDealName();
 	       description = bean.getDescription();
-	 
+	       dealType = bean.getDealType();
 
 		}
 
